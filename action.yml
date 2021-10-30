@@ -1,0 +1,9 @@
+name: 'JUCE 6 Windows Build'
+description: 'Build a JUCE 6 project on windows using cmake'
+runs:
+  using: 'composite'
+  steps: 
+    - id: Configure
+      run: cmake -B build
+    - id: Build
+      run: cmake --build build
