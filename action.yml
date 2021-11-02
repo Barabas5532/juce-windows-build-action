@@ -1,9 +1,14 @@
 name: 'JUCE 6 Windows Build'
 description: 'Build a JUCE 6 project on windows using cmake'
+inputs:
+  config:
+    description: 'CMake build configuration'
+    default: 'Release'
+    required: false
 runs:
   using: 'composite'
-  steps: 
+  steps:
     - run: |
         cmake -B build
-        cmake --build build
+        cmake --build build --config ${{ inputs.config }}
       shell: bash
